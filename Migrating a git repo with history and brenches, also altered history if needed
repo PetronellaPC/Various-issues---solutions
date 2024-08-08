@@ -7,9 +7,9 @@ Create in the destination repo a new repository empty with no readme, license, .
 
 On the local machine clone the source repo with the `–mirror` option. This will keep the source repo history and its old branches
     
-```
-    git clone --mirror https://<source-repo-domain>/<the-repo>.git 
-```
+        ```
+            git clone --mirror https://<source-repo-domain>/<the-repo>.git 
+        ```
 
 Navigate in the folder just cloned and:
 ```
