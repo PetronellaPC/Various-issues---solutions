@@ -12,7 +12,7 @@ On the local machine clone the source repo with the `–mirror` option. This wil
 Navigate in the folder just cloned and:
 
         `git remote add <destination> https://<destination-repo-domain>/<new-repo-name>.git`
-        `git push --mirror github`
+        `git push --mirror <destination>`
 
 If there are issues with files that are too big and the push fails, there are a few options, but for some of these options (using `git lfs track`) one needs admin rights on the source repo. Should that not be the case, one can remove the fat file stil, alas this means altering the history of the repo. Here's how to do it:
     
@@ -23,7 +23,7 @@ If `filter-repo` is not installed, it can be installed with python (or brew for 
 After this little clean up the history is altered and this version will be pushed to the new repo.
 
         `git remote add <destination> https://<destination-repo-domain>/<new-repo-name>.git`
-        `git push --mirror github`
+        `git push --mirror <destination>`
 
 Remove the old remote origin:
 
@@ -34,7 +34,7 @@ Set the origin remote:
         `git remote add origin https://<destination-repo-domain>/<new-repo-name>.git`
         `git fetch`
         `git branch --set-upstream-to=origin/master`
-
+Here `master` is the main branch. It can have another name, depending on the repo is setup.
 And done. The local machine files can be removed. Working with the repo involves cloning the destination repo.
 
 
