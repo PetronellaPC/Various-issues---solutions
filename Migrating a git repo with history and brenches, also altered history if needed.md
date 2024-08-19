@@ -89,11 +89,31 @@ Fetch the changes from the remote but don't merge them:
 
 Find the desired commits, say the last 5 commits:
 
-    `git log <source>/branch-name`
+        `git log <source>/branch-name`
 
 Find the hash of the 5th commit from the top of the remote branch, then merge:
 
-    `git merge --no-ff commit-hash`
+        `git merge --no-ff commit-hash`
 
 `--no-ff` means "no fast forward". It creates a merge commit even if the merge could be resolved as a fast forward, which is useful when wanting to preserve the exact history of the commits.
 There are other options also, this info is not meant to be exhaustive. Share if you like :-)
+
+### Option 3: Create a Temporary Branch
+
+Create a new temporary branch at the remote's target commit and then pull in that branch:
+   
+    `# Fetch the remote changes
+    git fetch bitbucket`
+ 
+    `# Create a temp branch from the desired commit
+    git branch temp-branch commit-hash` 
+ 
+    `# Checkout to the temp branch
+    git checkout temp-branch`
+ 
+    `# Merge the temp branch into your current branch
+    git merge temp-branch`
+ 
+    `# Delete the temp branch
+    git branch -d temp-branch`
+    
